@@ -1,0 +1,24 @@
+buildscript {
+    repositories {
+        google() // This is needed to fetch Google services and Android tools
+        mavenCentral() // This is needed for other dependencies
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.4.2' // Specify a valid version
+        classpath 'com.google.gms:google-services:4.4.2' // or the version you're using
+    }
+}
+
+allprojects {
+    repositories {
+        google() // Ensure this is present
+        mavenCentral() // Ensure this is present
+    }
+}
+
+
+rootProject.buildDir = "../build"
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}
